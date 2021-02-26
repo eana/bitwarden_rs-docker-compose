@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+  bitwarden-server:
+    image: bitwardenrs/server-mysql:1.14.2
+    container_name: bitwarden-server
+    restart: always
+    ports:
+      - 172.17.0.1:8100:80
+    environment:
+      ENABLE_DB_WAL: 'false'
+      SIGNUPS_ALLOWED: 'false'
+      INVITATIONS_ALLOWED: 'false'
+      SHOW_PASSWORD_HINT: 'false'
+      LOG_FILE: '/data/bitwarden.log'
+    depends_on:
+      - bitwarden-mysql
+    networks:
+      - bitwarden-network
+  bitwarden-mysql:
+    image: mariadb:10.5.3
+    container_name: bitwarden-mysql
+    restart: always
+    networks:
+      - bitwarden-network
+networks:
+  bitwarden-network:
+      driver: bridge
