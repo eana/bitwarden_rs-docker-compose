@@ -17,7 +17,7 @@ services:
     networks:
       - bitwarden-network
   bitwarden-mysql:
-    image: mariadb:10.5.9
+    image: mariadb:10.6.0
     container_name: bitwarden-mysql
     restart: always
     networks:
