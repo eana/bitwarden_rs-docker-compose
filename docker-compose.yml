@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   bitwarden-server:
-    image: vaultwarden/server:1.29.2
+    image: vaultwarden/server:1.30.0
     container_name: bitwarden-server
     restart: always
     ports:
