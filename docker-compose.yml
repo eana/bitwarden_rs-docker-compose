@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   bitwarden-server:
-    image: vaultwarden/server:1.30.0
+    image: vaultwarden/server:1.30.1
     container_name: bitwarden-server
     restart: always
     ports:
@@ -17,7 +17,7 @@ services:
     networks:
       - bitwarden-network
   bitwarden-mysql:
-    image: mariadb:11.1.2
+    image: mariadb:11.2.2
     container_name: bitwarden-mysql
     restart: always
     networks:
